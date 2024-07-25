@@ -24,50 +24,56 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/bg.png'),
+    return SafeArea(
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg.png'),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Scaffold(
-        body: tabs[currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (index) {
-            currentIndex = index;
-            setState(() {});
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_quran.png'),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('إسلامي'),
+          ),
+          body: tabs[currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (index) {
+              currentIndex = index;
+              setState(() {});
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_quran.png'),
+                ),
+                label: 'Quran',
               ),
-              label: 'Quran',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_hadeth.png'),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_hadeth.png'),
+                ),
+                label: 'Hadeth',
               ),
-              label: 'Hadeth',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_sebha.png'),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_sebha.png'),
+                ),
+                label: 'Sebha',
               ),
-              label: 'Sebha',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_radio.png'),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_radio.png'),
+                ),
+                label: 'Radio',
               ),
-              label: 'Radio',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
-              label: 'Settings',
-            ),
-          ],
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings_outlined),
+                label: 'Settings',
+              ),
+            ],
+          ),
         ),
       ),
     );
