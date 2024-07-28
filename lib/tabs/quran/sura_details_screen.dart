@@ -12,14 +12,18 @@ class SuraDetailsScreen extends StatefulWidget {
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
 }
 
-List<String> ayat = [];
-late SuraDetailesArgs args;
+
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
+  List<String> ayat = [];
+late SuraDetailesArgs args;
   @override
   Widget build(BuildContext context) {
-    loadSuraFile();
     args = ModalRoute.of(context)!.settings.arguments as SuraDetailesArgs;
+    if (ayat.isEmpty) {
+      loadSuraFile();
+    }
+
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
@@ -60,7 +64,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   void loadSuraFile() async {
     String sura =
         await rootBundle.loadString('assets/files/${args.index + 1}.txt');
-    ayat = sura.split('\n');
+    ayat = sura.trim().split('\n');
+    print(ayat);
     setState(() {});
   }
 }
