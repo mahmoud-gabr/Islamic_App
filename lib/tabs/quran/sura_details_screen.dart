@@ -12,11 +12,9 @@ class SuraDetailsScreen extends StatefulWidget {
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
 }
 
-
-
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   List<String> ayat = [];
-late SuraDetailesArgs args;
+  late SuraDetailesArgs args;
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as SuraDetailesArgs;
@@ -65,7 +63,6 @@ late SuraDetailesArgs args;
     String sura =
         await rootBundle.loadString('assets/files/${args.index + 1}.txt');
     ayat = sura.trim().split('\n');
-    print(ayat);
     setState(() {});
   }
 }
