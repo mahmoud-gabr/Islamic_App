@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
+import 'package:islami_app/tabs/settings/settings_provider.dart';
 import 'package:islami_app/widgets/loading_indicator.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = '/sura-details';
@@ -26,9 +28,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
     return SafeArea(
       child: Container(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg.png'),
+            image: AssetImage(Provider.of<SettingsProvider>(context).backgroundImagePath),
             fit: BoxFit.cover,
           ),
         ),
@@ -44,7 +46,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.darkPrimary
+                  : AppTheme.white,
             ),
             child: ayat.isEmpty
                 ? const LoadingIndicator()

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/app_theme.dart';
+import 'package:islami_app/tabs/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
@@ -15,6 +18,9 @@ class RadioTab extends StatelessWidget {
         Text(
           'إذاعة القرأن الكريم',
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Provider.of<SettingsProvider>(context).isDark
+                    ? AppTheme.white
+                    : AppTheme.black,
                 fontWeight: FontWeight.w600,
               ),
         ),
@@ -28,7 +34,9 @@ class RadioTab extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.skip_previous_rounded,
-                color: Theme.of(context).primaryColor,
+                color: Provider.of<SettingsProvider>(context).isDark
+                    ? AppTheme.gold
+                    : Theme.of(context).primaryColor,
                 size: 64,
               ),
             ),
@@ -39,7 +47,9 @@ class RadioTab extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.play_arrow_rounded,
-                color: Theme.of(context).primaryColor,
+                color: Provider.of<SettingsProvider>(context).isDark
+                    ? AppTheme.gold
+                    : Theme.of(context).primaryColor,
                 size: 64,
               ),
             ),
@@ -50,7 +60,9 @@ class RadioTab extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.skip_next_rounded,
-                color: Theme.of(context).primaryColor,
+                color: Provider.of<SettingsProvider>(context).isDark
+                    ? AppTheme.gold
+                    : Theme.of(context).primaryColor,
                 size: 64,
               ),
             ),

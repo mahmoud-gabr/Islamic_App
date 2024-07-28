@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_theme.dart';
+import 'package:islami_app/tabs/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -22,12 +24,16 @@ class _SebhaTabState extends State<SebhaTab> {
       width: double.infinity,
       child: Column(
         children: [
-          Image.asset('assets/images/head_sebha_logo.png'),
+          Image.asset(
+            Provider.of<SettingsProvider>(context).sebhaImages[0],
+          ),
           GestureDetector(
             onTap: onTab,
             child: Transform.rotate(
               angle: angle * 3.141592653589793 / 180,
-              child: Image.asset('assets/images/body_sebha_logo.png'),
+              child: Image.asset(
+                Provider.of<SettingsProvider>(context).sebhaImages[1],
+              ),
             ),
           ),
           const SizedBox(
@@ -46,7 +52,9 @@ class _SebhaTabState extends State<SebhaTab> {
             height: 81,
             width: 69,
             decoration: BoxDecoration(
-              color: const Color(0xFFB7935F),
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.navyBlue
+                  : AppTheme.lightPrimary,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
@@ -66,7 +74,9 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
             height: 51,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.gold
+                  : AppTheme.lightPrimary,
               borderRadius: BorderRadius.circular(25),
             ),
             child: tasbehPrint(),
@@ -88,7 +98,9 @@ class _SebhaTabState extends State<SebhaTab> {
       return Text(
         tasbeh[0],
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.black
+                  : AppTheme.white,
             ),
       );
     } else if (counter <= 66) {
@@ -96,7 +108,9 @@ class _SebhaTabState extends State<SebhaTab> {
       return Text(
         tasbeh[1],
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.black
+                  : AppTheme.white,
             ),
       );
     } else if (counter < 99) {
@@ -104,7 +118,9 @@ class _SebhaTabState extends State<SebhaTab> {
       return Text(
         tasbeh[2],
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.black
+                  : AppTheme.white,
             ),
       );
     } else if (counter == 99) {
@@ -112,7 +128,9 @@ class _SebhaTabState extends State<SebhaTab> {
       return Text(
         tasbeh[2],
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.black
+                  : AppTheme.white,
             ),
       );
     } else {
@@ -121,7 +139,9 @@ class _SebhaTabState extends State<SebhaTab> {
       return Text(
         tasbeh[0],
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppTheme.white,
+              color: Provider.of<SettingsProvider>(context).isDark
+                  ? AppTheme.black
+                  : AppTheme.white,
             ),
       );
     }
