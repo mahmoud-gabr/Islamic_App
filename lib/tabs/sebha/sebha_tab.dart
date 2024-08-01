@@ -25,16 +25,34 @@ class _SebhaTabState extends State<SebhaTab> {
       width: double.infinity,
       child: Column(
         children: [
-          Image.asset(
-            Provider.of<SettingsProvider>(context).sebhaImages[0],
-          ),
-          GestureDetector(
-            onTap: onTab,
-            child: Transform.rotate(
-              angle: angle * 3.141592653589793 / 180,
-              child: Image.asset(
-                Provider.of<SettingsProvider>(context).sebhaImages[1],
-              ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .45,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 50,
+                  right: 0,
+                  bottom: 45,
+                  child: Image.asset(
+                    Provider.of<SettingsProvider>(context).sebhaImages[0],
+                  ),
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 40,
+                  child: GestureDetector(
+                    onTap: onTab,
+                    child: Transform.rotate(
+                      angle: angle * 3.141592653589793 / 180,
+                      child: Image.asset(
+                        Provider.of<SettingsProvider>(context).sebhaImages[1],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
