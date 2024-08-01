@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SettingsProvider with ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
+  String languge = 'en';
   bool get isDark => themeMode == ThemeMode.dark;
   String get backgroundImagePath =>
       isDark ? 'assets/images/dark_bg.png' : 'assets/images/bg.png';
@@ -17,6 +18,11 @@ class SettingsProvider with ChangeNotifier {
 
   void changeTheme(ThemeMode selectedTheme) {
     themeMode = selectedTheme;
+    notifyListeners();
+  }
+
+  void changLanguge(String selectedLanguage) {
+    languge = selectedLanguage;
     notifyListeners();
   }
 }

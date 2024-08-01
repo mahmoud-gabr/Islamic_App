@@ -5,6 +5,7 @@ import 'package:islami_app/tabs/hadeth/hadeth_deatails_screen.dart';
 import 'package:islami_app/tabs/quran/sura_details_screen.dart';
 import 'package:islami_app/tabs/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     return MaterialApp(
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
@@ -27,6 +29,9 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: settingsProvider.themeMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingsProvider.languge),
     );
   }
 }

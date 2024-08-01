@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/tabs/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
@@ -16,7 +17,7 @@ class RadioTab extends StatelessWidget {
           height: 57,
         ),
         Text(
-          'إذاعة القرأن الكريم',
+          AppLocalizations.of(context)!.radioSration,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 color: Provider.of<SettingsProvider>(context).isDark
                     ? AppTheme.white
