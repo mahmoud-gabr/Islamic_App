@@ -49,7 +49,7 @@ class SettingsTab extends StatelessWidget {
               ),
               DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
-                  value: settingsProvider.languge,
+                  value: settingsProvider.language,
                   items: [
                     DropdownMenuItem(
                       value: 'en',

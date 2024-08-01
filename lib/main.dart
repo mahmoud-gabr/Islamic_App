@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
         SuraDetailsScreen.routeName: (_) => const SuraDetailsScreen(),
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       themeMode: settingsProvider.themeMode,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale(settingsProvider.languge),
+      locale: Locale(settingsProvider.language),
     );
   }
 }
